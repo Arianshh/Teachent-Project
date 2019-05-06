@@ -1,0 +1,4 @@
+flask
+wtforms
+flask-login
+werkzeug
