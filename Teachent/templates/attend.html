@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <script language="javascript">
+
+        function getData(element) {
+            alert("Clicked on " + element.id);
+        }
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/css/resume.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/css/resume.min.css" rel="stylesheet">
+    <title>Teachent</title>
+
+    <STYLE>
+
+        .r {
+            direction: rtl;
+        }
+
+        html, body {
+            margin: 0;
+            height: 100%;
+            font-family: sans-serif;
+            background: #f0f4f8;
+        }
+
+        .calender {
+            margin: 2rem auto;
+            width: 60rem;
+            height: 31rem;
+            padding: 1.5rem;
+            border-radius: 3rem;
+            background: #404476;
+            font-size: 0;
+        }
+
+        .day, .week, .month {
+            font-family: 'Arimo', sans-serif;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 4rem;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 8rem;
+            height: 4rem;
+            border: 1px solid;
+            border-color: rgba(255, 255, 255, 0);
+            border-radius: 50%;
+            transition: 200ms ease-in-out;
+        }
+
+        .selectCourse {
+            width: 10%;
+            padding: 10%;
+            margin-right: 3rem;
+        }
+
+        .dayFont {
+            font-size: 1.2rem;
+            text-line-through-color: rgba(0, 0, 0, 0);
+            background-color: #3B5998
+        }
+
+        .week {
+            cursor: default;
+            color: #aaa;
+            font-size: 1.2rem;
+        }
+
+        .month {
+            width: 100%;
+        }
+
+        .day:hover {
+            border-color: rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .1);
+        }
+
+        @font-face {
+            font-family: "MyFont";
+            src: url(../static/fonts/IRANSansWeb_Bold.ttf);
+        }
+
+        .bg-primary {
+            background-color: #404476 !important;
+        }
+
+        @media (min-width: 992px) {
+            #sideNav {
+                left: auto !important;
+                right: 0;
+            }
+
+            body {
+                padding-right: 17rem !important;
+                padding-left: 0 !important;
+            }
+
+            .text-primary1 {
+                color: #4099FF !important;
+            }
+        }
+
+        .myInfo {
+            font-family: MyFont;
+        }
+
+        #page-top {
+            background-image: url("../static/img/Screen Shot 1397-03-05 at 12.27.02.jpg");
+        }
+
+        .full {
+            background-color: red;
+        }
+
+        .empty {
+            background-color: deepskyblue;
+        }
+
+
+    </STYLE>
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+
+<!---------- navbar ---------->
+<nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-primary  border-right" id="sideNav">
+    <h2 class="text-primary1">Teachent</h2>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+               src=" {% if user.gender=="Male" %}../static/img/man.jpg {% else %}../static/img/woman.jpg{% endif %}"
+               alt="">
+        </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!---------- navbar texts ------------>
+                <h5 class="nav-link js-scroll-trigger text-primary1 myInfo "> :نام </h5>
+            </li>
+            <li class="nav-item">
+                <h6 class="nav-link js-scroll-trigger text-primary1"
+                    href="#experience">{{ user.name }} {{ user.surName }}</h6>
+            </li>
+            <h5 class="nav-link js-scroll-trigger text-primary1 myInfo "> :تعداد دوره </h5>
+            </li>
+            <li class="nav-item">
+                <h6 class="nav-link js-scroll-trigger text-primary1" href="#experience">123</h6>
+            </li>
+            <li class="nav-item">
+                <h5 class="nav-link js-scroll-trigger text-primary1 myInfo" href="#education">: رتبه </h5>
+            </li>
+            <li class="nav-item">
+                <h6 class="nav-link js-scroll-trigger text-primary1" href="#skills">8.5/10</h6>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger myInfo" href="#interests">برنامه هفتگی</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger myInfo" href="{{ url_for("search" ) }}">صفحه اصلی</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-------------- teacher info (first part) ------------>
+<div class="container-fluid p-0 container">
+    <div class="row">
+        <section class="resume-section col-md-11  " style="text-align: right" id="about">
+            <div class="my-auto">
+                </h3>
+                <h3 class="mb-1 myInfo" style="margin-left: 70% ; margin-top: 1%">: دروس
+                </h3>
+                <hr>
+                <select class="selectCourse r" style="height: 15px">
+                    {% for course in courses %}
+                        <option value="volvo">{{ course.name }}</option>
+                    {% endfor %}
+
+                </select>
+                <br>
+                <br>
+                <br>
+                <br>
+                </h3>
+                <h3 class="mb-1 myInfo" style="margin-left: 70% ; margin-top: 1%"> : برنامه
+                </h3>
+                <hr>
+                <div class="calender r">
+                    <div class="month myInfo">هفته جاری</div>
+                    <hr>
+                    <hr>
+                    <div class="week myInfo">شنبه
+                        {% set statue1="" %}
+                        {% set statue2="" %}
+                        {% set statue3="" %}
+                        {% set statue4="" %}
+
+                        {% if timeElements[0][0]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][0]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}
+                        {% if timeElements[2][0]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}
+                        {% if timeElements[3][0]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+{#                      <button id="00" class="day dayFont myInfo {{ statue1 }}" onclick="clic(this)">۸-۱۰</button>#}
+                        <input type="checkbox" id="00" value="8-10">
+                        <button id="10" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="20" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="30" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+                    </div>
+
+                    <div class="week myInfo">یکشنبه
+                        {% if timeElements[0][1]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][1]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][1]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][1]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+                        <button id="01" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="11" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="21" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="31" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+                    </div>
+
+                    <div class="week myInfo">دوشنبه
+                        {% if timeElements[0][2]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][2]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][2]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][2]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+                        <button id="02" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="12" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="22" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="32" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+
+
+                    </div>
+
+                    <div class="week myInfo">سه شنبه
+                        {% if timeElements[0][3]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][3]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][3]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][3]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+                        <button id="03" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="13" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="23" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="33" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+                    </div>
+
+                    <div class="week myInfo">چهارشنبه
+                        {% if timeElements[0][4]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][4]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][4]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][4]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+                        <button id="04" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="14" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="24" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="34" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+                    </div>
+
+                    <div class="week myInfo">پنجشنبه
+                        {% if timeElements[0][5]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][5]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][5]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][5]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+                        <button id="05" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="15" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="25" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="35" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+
+
+                    </div>
+
+                    <div class="week myInfo">جمعه
+                        {% if timeElements[0][6]==1 %}
+                            {% set statue1="full" %}
+                        {% else %}
+                            {% set statue1="empty" %}
+                        {% endif %}
+                        {% if timeElements[1][6]==1 %}
+                            {% set statue2="full" %}
+                        {% else %}
+                            {% set statue2="empty" %}
+                        {% endif %}  {% if timeElements[2][6]==1 %}
+                            {% set statue3="full" %}
+                        {% else %}
+                            {% set statue3="empty" %}
+                        {% endif %}  {% if timeElements[3][6]==1 %}
+                            {% set statue4="full" %}
+                        {% else %}
+                            {% set statue4="empty" %}
+                        {% endif %}
+
+
+                        <button id="06" class="day dayFont myInfo {{ statue1 }}">۸-۱۰</button>
+                        <button id="16" class="day dayFont myInfo {{ statue2 }}">۱۱-۱۳</button>
+                        <button id="26" class="day dayFont myInfo {{ statue3 }}">۱۴-۱۶</button>
+                        <button id="36" class="day dayFont myInfo {{ statue4 }}">۱۷-۱۹</button>
+                    </div>
+                </div>
+            </div>
+            <button style="align-content: center">ثبت</button>
+        </section>
+    </div>
+</div>
+</body>
+</html>

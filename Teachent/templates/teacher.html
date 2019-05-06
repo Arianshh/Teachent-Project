@@ -1,0 +1,1159 @@
+{% from "form_macros.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/css/resume.min.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:100,200,300,400,500,600,700,800,900"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+          rel="stylesheet">
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/vendor/devicons/css/devicons.min.css" rel="stylesheet">
+    <link href="../static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/css/resume.min.css" rel="stylesheet">
+    <title>Teachent</title>
+
+    <STYLE>
+        .checkmark {
+            cursor: pointer;
+        }
+
+        .chk:hover {
+            cursor: pointer;
+        }
+
+        .chk {
+            display: none
+        }
+
+        @font-face {
+            font-family: "MyFont";
+            src: url(../static/fonts/IRANSansWeb_Bold.ttf);
+        }
+
+        .bg-primary {
+            background-color: #3e1f53 !important;
+        }
+
+        @media (min-width: 992px) {
+            #sideNav {
+                left: auto !important;
+                right: 0;
+            }
+
+            body {
+                padding-right: 17rem !important;
+                padding-left: 0 !important;
+            }
+
+            .text-primary1 {
+                color: #ccc !important;
+            }
+        }
+
+        .myInfo {
+            font-family: MyFont;
+        }
+
+        .r {
+            direction: rtl;
+        }
+
+        #page-top {
+            background-image: url("../static/img/Screen Shot 1397-03-05 at 12.27.02.jpg");
+        }
+
+        /**
+ * Tabs
+ */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+        / / make sure it wraps
+        }
+
+        .tabs label {
+            order: 1;
+        / / Put the labels first display: block;
+            padding: 1rem 2rem;
+            margin-right: 0.2rem;
+            cursor: pointer;
+            background: #90CAF9;
+            font-weight: bold;
+            transition: background ease 0.2s;
+        }
+
+        .tabs label {
+            order: 1;
+        / / Put the labels first display: block;
+            padding: 0.5rem 2rem;
+            margin-right: 0.4rem;
+            cursor: pointer;
+            background: white;
+            font-weight: bold;
+            transition: background ease 0.2s;
+            border-radius: 54px;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: .08rem;
+        }
+
+        .tabs .tab {
+            order: 99;
+        / / Put the tabs last flex-grow: 1;
+            width: 100%;
+            display: none;
+            padding: 1rem;
+            background: #fff;
+        }
+
+        .tabs input[type="radio"] {
+            display: none;
+            width: 100rem;
+        }
+
+        .tabs input[type="radio"]:checked + label {
+            background: #3e1f53;
+        }
+
+        .tabs input[type="radio"]:checked + label + .tab {
+            display: block;
+            width: 100rem;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 45em) {
+            .tabs .tab,
+            .tabs label {
+                order: initial;
+            }
+
+            .tabs label {
+                width: 100%;
+                margin-right: 0;
+                margin-top: 0.2rem;
+            }
+        }
+
+        /**
+         * Generic Styling
+        */
+        body {
+            background: #eee;
+            min-height: 100vh;
+            box-sizing: border-box;
+            padding-top: 10vh;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-weight: 300;
+            line-height: 1.5;
+            max-width: 60rem;
+            margin: 0 auto;
+            font-size: 112%;
+        }
+
+        .calender {
+            margin: 2rem auto;
+            width: 60rem;
+            height: 31rem;
+            padding: 1.5rem;
+            border-radius: 3rem;
+            background: #3e1f53;
+            font-size: 0;
+        }
+
+        .information {
+            margin: 2rem auto;
+            width: 60rem;
+            height: 31rem;
+            padding: 1.5rem;
+            border-radius: 3rem;
+            background: white;
+        }
+
+        .day, .week, .month {
+            font-family: 'Arimo', sans-serif;
+            cursor: pointer;
+            font-size: 1.5rem;
+            line-height: 4rem;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            display: inline-block;
+            width: 8rem;
+            height: 4rem;
+            border: 1px solid;
+            border-color: rgba(255, 255, 255, 0);
+            border-radius: 50%;
+            transition: 200ms ease-in-out;
+        }
+
+        .msg {
+            margin: 0.9rem auto;
+            width: 57rem;
+            height: 4rem;
+            padding: 0.9rem;
+            border-radius: 3rem;
+            background: #3B5998;
+            font-size: 0;
+            background-attachment: scroll;
+        }
+
+        .dayFont {
+            font-size: 1.2rem;
+            text-line-through-color: rgba(0, 0, 0, 0);
+            background-color: #756d9a
+        }
+
+        .week {
+            cursor: default;
+            color: #ccc;
+            font-size: 1.2rem;
+        }
+
+        .month {
+            width: 100%;
+        }
+
+        .day:hover {
+            border-color: rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .myInfo {
+            font-family: MyFont;
+        }
+
+        section.resume-section {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+            margin-left: -10rem;
+            border-radius: 20px;
+        }
+
+        .box {
+            margin-right: 100px;
+        }
+
+        .round3 {
+            border: 2px solid black;
+            border-radius: 12px;
+            width: 210px;
+            margin-right: 50px;
+            margin-top: -60px;
+            margin-bottom: 30px;
+            margin: 0.5rem;
+        }
+
+        div.inline {
+            float: right;
+        }
+
+        .clearBoth {
+            clear: both;
+        }
+
+        .calender1 {
+            margin: 2rem auto;
+            width: 60rem;
+            height: 31rem;
+            padding: 1.5rem;
+            border-radius: 3rem;
+            background: white;
+        }
+
+        /*button*/
+        .myButton {
+            -moz-box-shadow: inset 0px 1px 0px 0px #f29c93;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #f29c93;
+            box-shadow: inset 0px 1px 0px 0px #f29c93;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fe1a00), color-stop(1, #ce0100));
+            background: -moz-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+            background: -webkit-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+            background: -o-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+            background: -ms-linear-gradient(top, #fe1a00 5%, #ce0100 100%);
+            background: linear-gradient(to bottom, #fe1a00 5%, #ce0100 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe1a00', endColorstr='#ce0100', GradientType=0);
+            background-color: #fe1a00;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #d83526;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #b23e35;
+            width: 65px;
+        }
+
+        .myButton:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ce0100), color-stop(1, #fe1a00));
+            background: -moz-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+            background: -webkit-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+            background: -o-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+            background: -ms-linear-gradient(top, #ce0100 5%, #fe1a00 100%);
+            background: linear-gradient(to bottom, #ce0100 5%, #fe1a00 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ce0100', endColorstr='#fe1a00', GradientType=0);
+            background-color: #ce0100;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .myButton1 {
+            -moz-box-shadow: inset 0px 1px 0px 0px #caefab;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #caefab;
+            box-shadow: inset 0px 1px 0px 0px #caefab;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811));
+            background: -moz-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+            background: -webkit-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+            background: -o-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+            background: -ms-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+            background: linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811', GradientType=0);
+            background-color: #77d42a;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #268a16;
+            display: inline-block;
+            cursor: pointer;
+            color: #306108;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #aade7c;
+            width: 65px;
+
+        }
+
+        .myButton1:hover {
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
+            background: -moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+            background: -webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+            background: -o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+            background: -ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+            background: linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a', GradientType=0);
+            background-color: #5cb811;
+        }
+
+        .myButton1:active {
+            position: relative;
+            top: 1px;
+        }
+
+        .myButton2 {
+            -moz-box-shadow: inset 0px 1px 0px 0px #caefab;
+            -webkit-box-shadow: inset 0px 1px 0px 0px #caefab;
+            box-shadow: inset 0px 1px 0px 0px #caefab;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3B5998), color-stop(1, #3B5998));
+            background: -moz-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+            background: -webkit-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+            background: -o-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+            background: -ms-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+            background: linear-gradient(to bottom, #3B5998 5%, #3B5998 100%);
+            background-color: rgba(0, 0, 0, 0);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811', GradientType=0);
+            background-color: #3B5998;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
+            border: 1px solid #3B5998;
+            display: inline-block;
+            cursor: pointer;
+            color: rgb(134, 142, 150);
+            font-size: 15px;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px rgb(134, 142, 150);
+            width: 80px;
+        }
+
+        .myButton2:hover {
+
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #3B5998), color-stop(1, #3B5998));
+
+            background: -moz-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+
+            background: -webkit-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+
+            background: -o-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+
+            background: -ms-linear-gradient(top, #3B5998 5%, #3B5998 100%);
+
+            background: linear-gradient(to bottom, #3B5998 5%, #3B5998 100%);
+
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a', GradientType=0);
+
+            background-color: #404476;
+
+        }
+
+        .myButton2:active {
+
+            position: relative;
+
+            top: 1px;
+
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -ms-appearance: none;
+            appearance: none;
+            outline: 0;
+            box-shadow: none;
+            border: 0 !important;
+            background: #2c3e50;
+            background-image: none;
+        }
+
+        /* Custom Select */
+        .select {
+            position: relative;
+            display: block;
+            width: 15em;
+            height: 3em;
+            line-height: 3;
+            background: #2c3e50;
+            overflow: hidden;
+            border-radius: .25em;
+            margin-left: 5rem;
+        }
+
+        select {
+            width: 50%;
+            height: 100%;
+            margin: 0;
+            padding: 0 0 0 .5em;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        select::-ms-expand {
+            display: none;
+        }
+
+        /* Arrow */
+        .select::after {
+            content: '\25BC';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 1em;
+            background: #34495e;
+            pointer-events: none;
+        }
+
+        /* Transition */
+        .select:hover::after {
+            color: #f39c12;
+        }
+
+        .select::after {
+            -webkit-transition: .25s all ease;
+            -o-transition: .25s all ease;
+            transition: .25s all ease;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #020038;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid;
+            width: 30%; /* Could be more or less, depending on screen size */
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #2A679F;
+            margin-top: 6%;
+            font-size: 35px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+    </STYLE>
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<script>checked()</script>
+
+<!---------- navbar ---------->
+<nav class="navbar navbar-default navbar-expand-lg navbar-dark bg-primary  border-right" id="sideNav">
+    <h2 class="text-primary1" style="margin-top: 30px">Teachent</h2>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-none d-lg-block">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
+               src="{% if user.gender=="Male" %}../static/img/man.jpg {% else %}../static/img/woman.jpg{% endif %}"
+               alt="">
+        </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <!---------- navbar texts ------------>
+                <h5 class="nav-link js-scroll-trigger text-primary1 myInfo "> :تعداد دوره </h5>
+            </li>
+            <li class="nav-item">
+                <h6 class="nav-link js-scroll-trigger text-primary1" href="#experience">123</h6>
+            </li>
+            <li class="nav-item">
+                <h5 class="nav-link js-scroll-trigger text-primary1 myInfo" href="#education">: رتبه </h5>
+            </li>
+            <li class="nav-item">
+                <h6 class="nav-link js-scroll-trigger text-primary1" href="#skills">8.5/10</h6>
+            </li>
+            <li class="nav-item">
+                <a class="login100-form-btn nav-link js-scroll-trigger myInfo"
+                   onclick="document.getElementById('select').style.display='block'"> تغییر برنامه درسی </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger myInfo" href="{{ url_for('search') }}">خروج</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-------------- teacher info (inbox) ------------>
+<div class="container-fluid p-0 container">
+    <div class="row">
+        <section class="resume-section col-md-11  " style="text-align: right" id="about">
+            <div class="my-auto">
+                <div class="tabs">
+                    <input type="radio" class="r" name="tabs" id="tabone" checked="checked">
+                    <label for="tabone" class="myInfo">صندوق</label>
+                    <div class="tab container ">
+                        <div class="calender1">
+                            <div class="w3-third">
+                                {% for i in range(lenstu) %}
+                                    {% if relations[i].pending %}
+
+                                        <form method="post" action="">
+
+                                            <div class="w3-card w3-container col-sm-2 "
+                                                 style="min-height:150px ; min-width: 550px ; margin-left: 320px">
+                                                <div class="inline" style="padding: 7px 2px"><h5 class="  myInfo">
+                                                    نام:<span>{{ students[i].name }}</span>
+                                                </h5>
+                                                    <h5 class="  myInfo"> نام خانوادگی:
+                                                        <span>{{ students[i].surName }}</span>
+                                                    </h5>
+                                                    <h5 class="  myInfo">آدرس:
+                                                        <span>{{ students[i].address }} </span>
+                                                    </h5>
+                                                    <h5 class="  myInfo">درس درخواستی :‌
+                                                        <span>{{ course[i].name }} </span>
+                                                    </h5>
+                                                    <h5 class="  myInfo">تعداد جلسات:
+                                                        <span>{{ sessions[i] }}</span>
+                                                    </h5>
+                                                    <h5 class="  myInfo">قیمت:
+                                                        <span>۱۳۰تومان</span>
+                                                    </h5>
+                                                </div>
+                                                <div class="inline" style="margin-right: 110px ;margin-top: 25px">
+                                                    <input value="accept {{ students[i].id }} {{ course[i].id }}"
+                                                           type="submit"
+                                                           name="submit"
+                                                           class="myButton1"></input>
+                                                </div>
+                                                <div class="inline" style="margin-right: 110px ;margin-top: 25px">
+                                                    <input value="reject {{ students[i].id }} {{ course[i].id }}"
+                                                           type="submit"
+                                                           name="submit"
+                                                           class="myButton"></input>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                                <div class="inline">
+                                    <img src="../static/img/download.jpg"
+                                         style="margin-right: 60px ; margin-top: 202px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-------------- teacher info (program table) ------------>
+                    <input type="radio" class="r" name="tabs" id="tabtwo">
+                    <label for="tabtwo" class="myInfo">برنامه</label>
+                    <div class="tab">
+                        <div class="calender r">
+                            <div class="month myInfo">هفته جاری</div>
+
+                            <div class="week myInfo"> شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][0]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][0]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][0]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][0]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="00">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="10">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="20">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="30">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">یک شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][1]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][1]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][1]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][1]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="01">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="11">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="21">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="31">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">دو شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][2]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][2]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][2]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][2]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="02">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="12">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="22">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="32">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">سه شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][3]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][3]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][3]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][3]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="03">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="13">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="23">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="33">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">چهار شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][4]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][4]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][4]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][4]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="04">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="14">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="24">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="34">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">پنج شنبه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][5]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][5]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][5]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][5]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="05">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="15">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="25">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="35">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="week myInfo">جمعه
+
+
+                                {% set statue1="" %}
+                                {% set statue2="" %}
+                                {% set statue3="" %}
+                                {% set statue4="" %}
+
+                                {% if timeElements[0][6]==1 %}
+                                    {% set statue1="full" %}
+                                {% else %}
+                                    {% set statue1="empty" %}
+                                {% endif %}
+                                {% if timeElements[1][6]==1 %}
+                                    {% set statue2="full" %}
+                                {% else %}
+                                    {% set statue2="empty" %}
+                                {% endif %}
+                                {% if timeElements[2][6]==1 %}
+                                    {% set statue3="full" %}
+                                {% else %}
+                                    {% set statue3="empty" %}
+                                {% endif %}
+                                {% if timeElements[3][6]==1 %}
+                                    {% set statue4="full" %}
+                                {% else %}
+                                    {% set statue4="empty" %}
+                                {% endif %}
+                                <label class="container dayFont  ">8-10
+                                    <input type="checkbox" class="chk {{ statue1 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="06">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">11-13
+                                    <input type="checkbox" class="chk {{ statue2 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="16">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">14-16
+                                    <input type="checkbox" class="chk {{ statue3 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="26">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="container dayFont  ">17-19
+                                    <input type="checkbox" class="chk {{ statue4 }}" style="cursor: pointer"
+                                           name="check"
+                                           value="36">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div id="select" class="modal">
+                            <div class="imgcontainer">
+                                    <span onclick="document.getElementById('select').style.display='none'" class="close"
+                                          title="Close Modal">&times;</span>
+                            </div>
+                            <form class="modal-content animate" method="post" action="">
+                                {{ tform.hidden_tag() }}
+
+                                <div class="container">
+                                    <br>
+                                    <br>
+                                    `
+                                    <div class="login100-form-title myFont r myInfo"
+                                         style="color: white; margin-right:5rem;">
+                                        روز و ساعت فعلی :
+                                    </div>
+                                    <br>
+                                    <div class="select">
+                                        {{ tform.day(class="myInfo",id="slct") }}
+                                    </div>
+                                    <br>
+                                    <div class="select">
+                                        {{ tform.time(class="myInfo",id="slct1") }}
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                    <div class="login100-form-title myFont r myInfo"
+                                         style="color: white; margin-right:5rem;">
+                                        روز و ساعت جدید :
+                                    </div>
+                                    <br>
+                                    <div class="select">
+
+                                        {{ tform.bday(class="myInfo",id="slct0") }}
+                                    </div>
+                                    <br>
+                                    <div class="select">
+                                        {{ tform.btime(class="myInfo",id="slct01") }}
+                                    </div>
+                                    <br>
+                                    <br>
+
+                                    <div>
+                                        <button type="submit" name="submit" class="myButton2 myInfo"
+                                                style="margin-right: 6rem; width: 17rem">
+                                            ثبت زمان
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <!-------------- teacher info (edit information) ------------>
+                    <input type="radio" class="r" name="tabs" id="tabthree">
+                    <label for="tabthree" class="myInfo">اطلاعات</label>
+                    <div class="tab">
+                        <form action="" method="post">
+                            {{ form.hidden_tag() }}
+
+                            <div class="information">
+
+                                <h1 style="margin-right: 600px"> Teachent </h1>
+                                <p class="myInfo r">
+                                    <div class="box r myInfo container">
+                                        <form method="post" action="">
+                                            {{ form.hidden_tag() }}
+                                            <span>
+                            <div class="inline" style="margin-right: 50px; border-radius: 12px; margin-top: -60px">نام:
+                                <p class="round3"> {{ user.name }} </p>
+
+                                سن:<br>
+                                <p class="round3"> {{ user.age }} </p>
+                                تحصیلات:<br>
+                                {{ form.education(class="round3") }}
+
+                                رتبه کنکور:<br>
+                                <p class="round3"> {{ user.rank }} </p>
+                                ایمیل:<br>{{ form.email(class="round3") }}<br>
+                                تکرار رمز:<br>{{ form.password2(class="round3") }}<br>
+                            </div>
+                            <div class="inline" style="margin-right: 50px; border-radius: 12px; margin-top: -60px">
+                                نام خانوادگی:<p class="round3" style="margin: 1rem"> {{ user.surName }} </p>
+                                کد ملی:<p class="round3"> {{ user.identificationId }} </p>
+                                رشته:<br>{{ form.major(class="round3") }}
+                                <br>رمز: <br>{{ form.password(class="round3") }}
+                            </div>
+                            <input name="submit" type="submit">اعمال تغییرات</input>
+                            </span>
+                        </form>
+                    </div>
+                    {#<div class="inline">
+                        <img src="../static/img/images.jpg" style="margin-right: 190px ; margin-top: -142px">
+                    </div>#}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+</section>
+</div>
+</div>
+<script>
+    var e = document.getElementsByClassName("full");
+    for (var i = 0; i < e.length; i++) {
+        e[i].disabled = true;
+        e[i].parentElement.style.backgroundColor = "red";
+    }
+
+</script>
+<script defer>
+    var my = setInterval(checked, 0)
+
+    function checked() {
+        var e = document.getElementsByClassName("chk");
+        for (var i = 0; i < e.length; i++) {
+
+            if (!e[i].disabled)
+                e[i].parentElement.style.backgroundColor = "#756d9a";
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>

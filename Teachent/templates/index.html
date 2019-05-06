@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../static/css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/css/scrolling-nav.css" rel="stylesheet">
+    <link href="../static/css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/css/scrolling-nav.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <title>Teachent</title>
+
+
+    <style>
+
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Karma", sans-serif
+        }
+
+        .w3-bar-block .w3-bar-item {
+            padding: 40px
+        }
+
+        /* fonts */
+        @font-face {
+            font-family: "MyFont1";
+            src: url(../static/fonts/CabinSketch-Bold.ttf);
+        //./static/
+        }
+
+        @font-face {
+            font-family: "MyFont2";
+            src: url(../static/fonts/IRANSansWeb_Bold.ttf);
+        }
+
+        .myFont2 {
+            font-family: MyFont2;
+        }
+
+        HTML, BODY {
+            height: 100%;
+        }
+
+        .BODY1 {
+            background-size: .12em 100%;
+            font: 16em/1 MyFont1;
+        }
+
+        .text--line {
+            font-size: .41em;
+        }
+
+        svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* teachent */
+
+        .text-copy {
+            fill: none;
+            stroke: white;
+            stroke-dasharray: 7% 28%;
+            stroke-width: 3px;
+            -webkit-animation: stroke-offset 12s infinite linear;
+            animation: stroke-offset 12s infinite linear;
+        }
+
+        .text-copy:nth-child(1) {
+            stroke: rgb(2, 78, 153);
+            stroke-dashoffset: 21%;
+        }
+
+        .text-copy:nth-child(2) {
+            stroke: #ab42ff;
+            stroke-dashoffset: 14%;
+        }
+
+        .text-copy:nth-child(3) {
+            stroke: #989797;
+            stroke-dashoffset: 7%;
+        }
+
+        .text-copy:nth-child(4) {
+            stroke: #21d4fd;
+            stroke-dashoffset: 28%;
+        }
+
+        .text-copy:nth-child(5) {
+            stroke: #8980ff;
+            stroke-dashoffset: 35%;
+        }
+
+        @-webkit-keyframes stroke-offset {
+            50% {
+                stroke-dashoffset: 35%;
+                stroke-dasharray: 0 87.5%;
+            }
+        }
+
+        @keyframes stroke-offset {
+            50% {
+                stroke-dashoffset: 35%;
+                stroke-dasharray: 0 87.5%;
+            }
+        }
+
+        .wrapper {
+            position: absolute;
+            margin-bottom: -20px;
+            left: 52%;
+            transform: translate(-35%, -35%);
+            width: 530px;
+        }
+
+        /* Style the Un-order list by setting its list-style to none */
+        .wrapper ul {
+            list-style: none;
+        }
+
+        .wrapper ul li {
+            width: 45px;
+            height: 45px;
+            line-height: 10px;
+            margin: 0 10px;
+            margin-bottom: 12px;
+            margin-right: 10px;
+            right: 7%;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 40%;
+            border: 3px solid #D8E2DC;
+            float: left;
+            transition: all 0.5s ease;
+        }
+
+        /* Style the icons by setting its color and margin-top value to 20px
+        to align it properly */
+        .wrapper ul li .fa {
+            color: #D8E2DC;
+            margin-top: 5px;
+            transition: all 0.5s ease;
+        }
+
+        /* Now target the specific li classes for styling and use box-shadow effect to border and text-shadow effect
+          to icons for glowing effect and use transition property for smooth transition effect. */
+        /*facebook*/
+        .wrapper ul li:hover.facebook {
+            border: 5px solid #3b5998;
+            box-shadow: 0 0 15px #3b5998;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper ul li:hover .fa-facebook {
+            color: #3b5998;
+            text-shadow: 0 0 15px #3b5998;
+            transition: all 0.5s ease;
+        }
+
+        /*twitter*/
+        .wrapper ul li:hover.twitter {
+            border: 5px solid #00aced;
+            box-shadow: 0 0 15px #00aced;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper ul li:hover .fa-twitter {
+            color: #00aced;
+            text-shadow: 0 0 15px #00aced;
+            transition: all 0.5s ease;
+        }
+
+        /* instagram */
+        .wrapper ul li:hover.instagram {
+            border: 5px solid #bc2a8d;
+            box-shadow: 0 0 15px #bc2a8d;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper ul li:hover .fa-instagram {
+            color: #bc2a8d;
+            text-shadow: 0 0 15px #bc2a8d;
+            transition: all 0.5s ease;
+        }
+
+        /* google */
+        .wrapper ul li:hover.google {
+            border: 5px solid #dd4b39;
+            box-shadow: 0 0 15px #dd4b39;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper ul li:hover .fa-google {
+            color: #dd4b39;
+            text-shadow: 0 0 15px #dd4b39;
+            transition: all 0.5s ease;
+        }
+
+        /* whatsapp */
+        .wrapper ul li:hover.whatsapp {
+            border: 5px solid #4dc247;
+            box-shadow: 0 0 15px #4dc247;
+            transition: all 0.5s ease;
+        }
+
+        .wrapper ul li:hover .fa-whatsapp {
+            color: #4dc247;
+            text-shadow: 0 0 15px #4dc247;
+            transition: all 0.5s ease;
+        }
+
+        #lab_social_icon_footer #social-fb:hover {
+            color: #3B5998;
+        }
+
+        #lab_social_icon_footer #social-tw:hover {
+            color: #4099FF;
+        }
+
+        #lab_social_icon_footer #social-gp:hover {
+            color: #d34836;
+        }
+
+        #lab_social_icon_footer #social-em:hover {
+            color: #f39c12;
+        }
+
+        @-webkit-keyframes ripple {
+            from {
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes ripple {
+            from {
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes ripple {
+            from {
+                opacity: 1;
+            }
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .navbar-default {
+            background-color: #080808 !important;
+            border-color: #080808 !important;
+        }
+
+        .buttonstyle {
+            border-radius: 12px;
+            background-color: #21d4fd;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            text-align: center;
+            font-size: 16px;
+            /*   opacity: 0.7;*/
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .buttonstyle:hover {
+            background-color: #21d4fd;
+        }
+
+        a {
+            color: #2A679F;
+        }
+
+        /*========*/
+
+        .form-wrapper {
+            background-color: #f6f6f6;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8));
+            background-image: -webkit-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -moz-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -ms-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: -o-linear-gradient(top, #f6f6f6, #eae8e8);
+            background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+            border-color: #dedede #bababa #aaa #bababa;
+            border-style: solid;
+            border-width: 1px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            -moz-box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            box-shadow: 0 3px 3px rgba(255, 255, 255, .1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+            margin: 100px auto;
+            overflow: hidden;
+            padding: 8px;
+            width: 450px;
+        }
+
+        .form-wrapper #search {
+            border: 1px solid #CCC;
+            -webkit-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #FFF;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #999;
+            float: left;
+            font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+            height: 20px;
+            padding: 17px;
+            width: 320px;
+        }
+
+        .form-wrapper #search:focus {
+            border-color: #aaa;
+            -webkit-box-shadow: 0 1px 1px #bbb inset;
+            -moz-box-shadow: 0 1px 1px #bbb inset;
+            box-shadow: 0 1px 1px #bbb inset;
+            outline: 0;
+        }
+
+        .form-wrapper #search:-moz-placeholder,
+        .form-wrapper #search:-ms-input-placeholder,
+        .form-wrapper #search::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #submit {
+            background-color: #0483a0;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+            background-image: -webkit-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -moz-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -ms-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: -o-linear-gradient(top, #31b2c3, #0483a0);
+            background-image: linear-gradient(top, #31b2c3, #0483a0);
+            border: 1px solid #00748f;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset, 0 1px 0 #FFF;
+            color: #fafafa;
+            cursor: pointer;
+            height: 42px;
+            float: right;
+            font: 15px Arial, Helvetica;
+            padding: 0;
+            text-transform: uppercase;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+            width: 100px;
+        }
+
+        .form-wrapper #submit:hover,
+        .form-wrapper #submit:focus {
+            background-color: #31b2c3;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+            background-image: -webkit-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -moz-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -ms-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: -o-linear-gradient(top, #0483a0, #31b2c3);
+            background-image: linear-gradient(top, #0483a0, #31b2c3);
+        }
+
+        .form-wrapper #submit:active {
+            -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+            outline: 0;
+        }
+
+        .form-wrapper #submit::-moz-focus-inner {
+            border: 0;
+        }
+
+        .r {
+            direction: rtl;
+        }
+
+        a:hover {
+            color: white;
+        }
+
+        /* search box*/
+
+        #search-form_3 {
+            background: #e1e1e1; /* Fallback color for non-css3 browsers */
+            width: 365px;
+            margin: 100px auto;
+
+            /* Gradients */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(243, 243, 243)), color-stop(1, rgb(225, 225, 225)));
+            background: -moz-linear-gradient(center top, rgb(243, 243, 243) 0%, rgb(225, 225, 225) 100%);
+
+            /* Rounded Corners */
+            border-radius: 17px;
+            -webkit-border-radius: 17px;
+            -moz-border-radius: 17px;
+
+            /* Shadows */
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .3), 0 0 2px rgba(0, 0, 0, .3);
+            -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .3), 0 0 2px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, .3), 0 0 2px rgba(0, 0, 0, .3);
+        }
+
+        /*** TEXT BOX ***/
+        .search_3 {
+            background: #fafafa; /* Fallback color for non-css3 browsers */
+
+            /* Gradients */
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(250, 250, 250)), color-stop(1, rgb(230, 230, 230)));
+            background: -moz-linear-gradient(center top, rgb(250, 250, 250) 0%, rgb(230, 230, 230) 100%);
+            border: 0;
+            border-bottom: 1px solid #fff;
+            border-right: 1px solid rgba(255, 255, 255, .8);
+            font-size: 16px;
+            margin: 4px;
+            padding: 5px;
+            width: 250px;
+
+            /* Rounded Corners */
+            border-radius: 17px;
+            -webkit-border-radius: 17px;
+            -moz-border-radius: 17px;
+
+            /* Shadows */
+            box-shadow: -1px -1px 2px rgba(0, 0, 0, .3), 0 0 1px rgba(0, 0, 0, .2);
+            -webkit-box-shadow: -1px -1px 2px rgba(0, 0, 0, .3), 0 0 1px rgba(0, 0, 0, .2);
+            -moz-box-shadow: -1px -1px 2px rgba(0, 0, 0, .3), 0 0 1px rgba(0, 0, 0, .2);
+        }
+
+        /*** USER IS FOCUSED ON TEXT BOX ***/
+        .search_3:focus {
+            outline: none;
+            background: #fff; /* Fallback color for non-css3 browsers */
+
+            /* Gradients */
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, rgb(255, 255, 255)), color-stop(1, rgb(235, 235, 235)));
+            background: -moz-linear-gradient(center top, rgb(255, 255, 255) 0%, rgb(235, 235, 235) 100%);
+        }
+
+        /*** SEARCH BUTTON ***/
+        .submit_3 {
+            background: #8980ff; /* Fallback color for non-css3 browsers */
+            /* Gradients */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff));
+            background: -moz-linear-gradient(center top, #8980ff 0%, #8980ff 15%, #8980ff 88%, #8980ff 100%);
+            border: 0;
+            color: #eee;
+            cursor: pointer;
+            float: right;
+            font: 16px 'Raleway', sans-serif;
+            font-weight: bold;
+            height: 30px;
+            margin: 4px 4px 0;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+            width: 84px;
+            outline: none;
+
+            /* Rounded Corners */
+            border-radius: 30px;
+            -webkit-border-radius: 30px;
+            -moz-border-radius: 30px;
+
+            /* Shadows */
+            box-shadow: -1px -1px 1px rgba(255, 255, 255, .5), 1px 1px 0 rgba(0, 0, 0, .4);
+            -moz-box-shadow: -1px -1px 1px rgba(255, 255, 255, .5), 1px 1px 0 rgba(0, 0, 0, .2);
+            -webkit-box-shadow: -1px -1px 1px rgba(255, 255, 255, .5), 1px 1px 0 rgba(0, 0, 0, .4);
+        }
+
+        /*** SEARCH BUTTON HOVER ***/
+        .submit_3:hover {
+            background: #8980ff; /* Fallback color for non-css3 browsers */
+
+            /* Gradients */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff));
+            background: -moz-linear-gradient(center top, #8980ff 0%, #8980ff 15%, #8980ff 80%, #8980ff 100%);
+        }
+
+        .submit_3:active {
+            background: #8980ff; /* Fallback color for non-css3 browsers */
+
+            /* Gradients */
+            background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff), color-stop(0, #8980ff));
+            background: -moz-linear-gradient(center bottom, #8980ff 0%, #8980ff) 15%, #8980ff 80%, #8980ff) 100 %);
+        }
+
+        .item {
+            height: 400px;
+        }
+
+
+    </style>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="../static/login/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/login/css/main.css">
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!---------- navbar ---------->
+<nav class="navbar navbar-default navbar-fixed-top navbar-dark bg-dark" role="navigation">
+    {% if current_user.is_authenticated %}
+
+        <a href="{{ url_for("teacherAcc" ,username=current_user.username) }}" style="color: #31b2c3">Logged in
+            as {{ current_user.username }}.</a>
+
+
+    {% endif %}
+    <div class="container">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top"
+               style="color:#21d4fd ;text-shadow: 0 0 3px #204d74, 0 0 5px #265a88;">Teachent</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about" style="color:#8980ff  ; ">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:#ab42ff  ; ">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services" style="color:black">Services</a>
+                </li>
+
+                <li>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn" style="float: right;position: relative;left: 20%;">
+                            <div class="login100-form-bgbtn"></div>
+                            {% if current_user.is_authenticated %}
+                                <a class="login100-form-btn myFont2" href="{{ 'logout' }}"
+                                   style="margin-right: 0 ; padding: 0 35px !important; height: 30px !important; margin-top: -3px ">
+                                    خروج
+                                </a>
+                            {% else %}
+                                <a class="login100-form-btn myFont2" href="{{ url_for("login") }}"
+                                   style="margin-right: 0 ; padding: 0 35px !important; height: 30px !important; margin-top: -3px ">
+                                    ورود
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn" style="float: right;position: relative;left: 26%;">
+                            <div class="login100-form-bgbtn"></div>
+                            {% if current_user.is_authenticated %}
+
+                            {% else %}
+                                <a class="login100-form-btn myFont2" href="{{ url_for('signup') }}"
+                                   style="margin-right: 0 ; padding: 0 30px !important; height: 30px !important; margin-top: -3px">
+                                    عضویت
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="">
+
+    <!---------- the name ---------->
+    <div class="BODY1 ">
+        <svg viewBox="0 0 1000 800">
+            <symbol id="s-text">
+                <text class="text--line" y="41%" x="80%" text-anchor="middle">
+                    Teachent
+                </text>
+
+            </symbol>
+
+            <g class="g-ants">
+                <use class="text-copy" xlink:href="#s-text"/>
+                <use class="text-copy" xlink:href="#s-text"/>
+                <use class="text-copy" xlink:href="#s-text"/>
+                <use class="text-copy" xlink:href="#s-text"/>
+                <use class="text-copy" xlink:href="#s-text"/>
+            </g>
+        </svg>
+    </div>
+    <img src="../static/img/PicsArt_05-29-03.40.05.jpg"
+         style="width:100%;min-height:300px;max-height:500px; margin-top: 5%">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!--
+        <div class="wrap">
+            <a class="button1 red" href="login.html" style="margin-left: -75% ; margin-top: -35%">ورود</a>
+        </div>
+        <div class="wrap">
+            <button class="button1 blue  login100-form-btn " href="#" style="margin-left: -60% ; margin-top: -85%">ثبت نام</button>
+        </div>
+    -->
+
+</div>
+<!---------- search part and  slideshow ---------->
+<hr id="Search1">
+
+
+<div class="container">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="../static/img/sl3.jpg" alt="Los Angeles">
+            </div>
+
+            <div class="item">
+                <img src="../static/img/sl2.jpg" alt="Chicago">
+            </div>
+
+            <div class="item">
+                <img src="../static/img/sl1.jpg" alt="New york">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+
+<form id="search-form_3" method="post">
+    <input type="text" class="search_3" name="searchCon"/>
+    <input type="submit" class="submit_3" value="Search"/></form>
+<hr id="about">
+<!---------- teacher's list (first part)---------->
+<div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    {% for teacher in teachers %}
+        <div class="w3-quarter">
+            <img src="{% if teacher.gender=="Male" %}../static/img/man.jpg {% else %}../static/img/woman.jpg
+{% endif %}"
+                 alt="teacher" style="width:100%">
+            <h3>{{ teacher.name }} {{ teacher.surName }}</h3>
+            <a class="buttonstyle myFont2" href="{{ url_for('user', username=teacher.username) }}">پروفایل</a>
+
+        </div>
+    {% endfor %}
+
+</div>
+<!---------- teacher's list (second part) ---------->
+<div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
+        <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+        <a href="Page2.html" class="w3-bar-item w3-button w3-hover-black">2</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+        <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
+    </div>
+</div>
+<hr>
+<!----------about us part----------->
+<div class="w3-container w3-padding-32 w3-center myFont2" style="background:black ; ">
+    <h3 class="myFont2" style="color: #21d4fd">درباره ی ما</h3>
+    <div class="w3-padding-32 myFont2">
+        <h4 class="myFont2" style="color: #ab42ff"><b>!اینجا کجاست</b></h4>
+        <p class="myFont2" style="color: #8980ff">ما ۵ تا دانشجو هستیم که در تلاش برای فراهم کردن فضایی مناسب
+            برای تحصیل
+            شما عزیریان وایجاد اشتغال برای دانشجو
+            های مثل خودمون هستیم
+
+            <br>
+            " با آنکه می دانید به کجا می خواهید برسید، اگر مسیر درستی انتخاب نکنید، هرگز به مقصد نمی رسید.
+            جان ماکسول
+            <br>
+            تلفن :21283012
+            <br>
+            پست الکترونیک : teachent@yahoo.com
+            <br>
+            نشانی:-------
+        </p>
+    </div>
+
+    <!---------- social media ----------->
+    <div id="lab_social_icon_footer">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+              rel="stylesheet"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+              crossorigin="anonymous">
+
+
+        <div class="wrapper">
+            <ul>
+                <li class="facebook"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></li>
+                <li class="twitter"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></li>
+                <li class="instagram"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></li>
+                <li class="google"><i class="fa fa-google fa-2x" aria-hidden="true"></i></li>
+                <li class="whatsapp"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/jquery.easing.min.js"></script>
+<script src="../static/js/scrolling-nav.js"></script>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+</body>
+
+</html>
